@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VirLab — Laboratorio Virtual de Cribado Neonatal</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Cabecera Institucional, Selector de Caso y Glosario -->
+  <header class="site-header">
+    <div class="header-container">
+      <div>
+        <h1 class="brand-title">VirLab</h1>
+        <p class="brand-subtitle">Laboratorio Virtual de Cribado Neonatal y Genética (Bachillerato)</p>
+      </div>
+      <div class="header-actions">
+        <div class="case-switcher-box">
+          <label for="case-select" class="case-label">Caso clínico:</label>
+          <select id="case-select" class="case-select" aria-label="Seleccionar caso clínico">
+            <option value="case-vn">Caso 01 (VN) — Verdadero Negativo</option>
+            <option value="case-vp">Caso 02 (VP) — Verdadero Positivo</option>
+          </select>
+        </div>
+        <button id="btn-open-glossary" class="btn btn-secondary btn-sm" type="button" aria-haspopup="dialog" aria-expanded="false">
+          &#x1F4D6; Glosario
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Barra de Progreso de las 4 Etapas -->
+  <nav class="progress-bar-wrapper" aria-label="Progreso del caso">
+    <ol class="progress-steps" id="progress-steps">
+      <li class="step-item active" data-stage="1">
+        <span class="step-number">1</span>
+        <span class="step-title">Presentación</span>
+      </li>
+      <li class="step-item" data-stage="2">
+        <span class="step-number">2</span>
+        <span class="step-title">Análisis MS/MS</span>
+      </li>
+      <li class="step-item" data-stage="3">
+        <span class="step-number">3</span>
+        <span class="step-title">Interpretación</span>
+      </li>
+      <li class="step-item" data-stage="4">
+        <span class="step-number">4</span>
+        <span class="step-title">Informe</span>
+      </li>
+    </ol>
+  </nav>
+
+  <!-- Contenedor Dinámico de la Etapa Activa -->
+  <main id="stage-container" class="main-content" role="region" aria-live="polite">
+    <!-- El contenido de la etapa se inyecta mediante los módulos JS -->
+  </main>
+
+  <!-- Barra de Navegación Inferior -->
+  <footer class="navigation-bar no-print">
+    <div class="nav-buttons-container">
+      <button id="btn-prev" class="btn btn-secondary" type="button" disabled>
+        &larr; Anterior
+      </button>
+
+      <span id="stage-indicator" class="text-sm label">
+        Etapa 1 de 4
+      </span>
+
+      <button id="btn-next" class="btn btn-primary" type="button">
+        Siguiente &rarr;
+      </button>
+    </div>
+  </footer>
+
+  <div class="site-footer no-print">
+    <p>VirLab &copy; 2026 &mdash; Plataforma didáctica para la enseñanza de ciencias biomédicas. Fines exclusivamente educativos.</p>
+  </div>
+
+  <!-- Modal del Glosario Científico -->
+  <div id="glossary-modal" class="modal-backdrop" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="glossary-modal-title">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="glossary-modal-title">&#x1F4D6; Glosario de Términos Científicos</h3>
+        <button id="btn-close-glossary" class="btn-close" aria-label="Cerrar glosario">&times;</button>
+      </div>
+      <div class="modal-body" id="glossary-list">
+        <!-- Inyectado dinámicamente -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Controlador Principal (Módulo ES6) -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
