@@ -1,5 +1,5 @@
 # Seguimiento: Actualización de nomenclatura de muestras y casos (Tarea A)
-Estado: IMPLEMENTADO Y PROBADO POR BÚSQUEDA | Validación visual: puntos 1-2 correctos; puntos 3-4 pendientes de confirmar | Base: commit 0fb7d13
+Estado: IMPLEMENTADO, PROBADO POR BÚSQUEDA Y VALIDADO VISUALMENTE POR EL USUARIO | Base: commit 0fb7d13
 
 ## Objetivo y alcance (2-3 líneas)
 Sustituir los códigos MUESTRA-2026-01/02 por CN_PKU_1001 y CN_PKU_2001 sin la letra X. Eliminar designaciones VN/VP y «Caso 01/02» visibles al alumnado, conservando «Recién nacido Ficticio (CN_PKU_nnnn)» y neutralizando títulos y etiquetas que anticipen resultados antes de responder.
@@ -26,11 +26,12 @@ Sustituir los códigos MUESTRA-2026-01/02 por CN_PKU_1001 y CN_PKU_2001 sin la l
 - Búsqueda de 'VN' y 'VP' en textos visibles/DOM: implementado y probado por búsqueda (solo en nombres/comentarios internos).
 - Búsqueda de 'Caso 01' y 'Caso 02' visibles al alumnado: implementado y probado por búsqueda (0 textos visibles al alumnado).
 - Búsqueda de letra 'X' en identificadores de muestra: implementado y probado por búsqueda (0 coincidencias, números reales 1001 y 2001).
-- Cierre de la etapa 4 (stage4.js, botón 'Imprimir o Guardar en PDF'): implementado y probado por búsqueda (stage4.js sin cambios). El botón 'Enviar a clínico' no existe en el código.
+- Cierre de la etapa 4 (stage4.js, botón 'Imprimir o Guardar en PDF'): implementado y probado por búsqueda (stage4.js sin cambios). El botón de cierre real es «Completar informe», en la barra de navegación (app.js).
+- Validación visual del usuario (selector de casos, ficha de la etapa 1, Fisiopatología, texto molecular y etiqueta del Sanger): validado
 
 ## Incidencias y decisiones pendientes
 - Infografía metabólica distinta por caso y estudio molecular solo en la muestra alterada: se mantienen como observaciones (contenido), decisión del usuario.
 - Pie del espectro (stage2.js:241-245), etiquetas 166→120 y 182→136, y etiqueta 'T (Mutado)' del Sanger (stage2.js:468): pasan a la Tarea B (gráficos).
 
 ## Cómo retomar
-Confirmar los puntos 3 y 4 de la revisión visual (insignia de Fisiopatología; texto molecular y etiqueta del Sanger). Después, Tarea B (gráficos).
+Tarea cerrada. Continúa con las tareas B (gráficos) y C (cierre simulado de la etapa 4).
