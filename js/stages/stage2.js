@@ -289,9 +289,7 @@ export function renderStage2(container, caseData, userState, onUpdate) {
       <article class="panel panel-secondary">
         <div class="panel-header-inline">
           <h3>Fisiopatología: Vía Metabólica de la Fenilalanina</h3>
-          <span class="badge ${isVN ? 'badge-success' : 'badge-warning'}">
-            ${isVN ? 'Caso 01 (VN): Actividad Enzimática Normal' : 'Caso 02 (VP): Alteración de la Actividad Enzimática'}
-          </span>
+          <span class="badge">Vía metabólica de la fenilalanina hidroxilasa (PAH)</span>
         </div>
 
         ${isVN ? `
@@ -391,7 +389,7 @@ export function renderStage2(container, caseData, userState, onUpdate) {
             <span class="badge badge-warning">Simulación Molecular Docente</span>
           </div>
           <p class="panel-desc">
-            Ante el perfil bioquímico de sospecha del caso 02 (VP), se realiza un estudio genético molecular complementario siguiendo estas cuatro fases:
+            Ante el perfil bioquímico de sospecha de la muestra ${caseData.code}, se realiza un estudio genético molecular complementario siguiendo estas cuatro fases:
           </p>
 
           <div class="molecular-steps-grid">
@@ -434,7 +432,7 @@ export function renderStage2(container, caseData, userState, onUpdate) {
             </div>
 
             <div class="sanger-row sanger-row-patient">
-              <span class="sanger-row-label">Secuencia del Paciente (Caso 02 - VP):</span>
+              <span class="sanger-row-label">Secuencia del Paciente (${caseData.code}):</span>
               <div class="sanger-bases">
                 <span class="base-box">C</span><span class="base-box">C</span><span class="base-box">T</span>
                 <span class="base-divider">-</span>

@@ -39,7 +39,7 @@ export function renderStage1(container, caseData, userState, onUpdate) {
           <h3>Ficha del Recién Nacido (Datos Sintéticos)</h3>
           <ul class="data-list">
             <li><span class="label">Código de muestra:</span> <span class="val-mono font-bold">${caseData.code}</span></li>
-            <li><span class="label">Caso asignado:</span> <span class="badge ${caseData.id === 'case-vn' ? 'badge-success' : 'badge-warning'}">Caso ${caseData.caseNumber} (${caseData.type})</span></li>
+            <li><span class="label">Caso asignado:</span> <span class="badge">${caseData.code}</span></li>
             <li><span class="label">Edad gestacional:</span> <span>${p.gestationalAgeWeeks} semanas (a término)</span></li>
             <li><span class="label">Peso al nacer:</span> <span>${p.birthWeightGrams} g</span></li>
             <li><span class="label">Momento de extracción:</span> <span>${p.hoursOfLife} horas de vida</span></li>

@@ -13,15 +13,15 @@
 
 export const caseVN = {
   id: "case-vn",
-  code: "MUESTRA-2026-01",
+  code: "CN_PKU_1001",
   caseNumber: "01",
-  type: "Verdadero Negativo (VN)",
+  type: "Cribado neonatal",
   disease: "Fenilcetonuria (PKU)",
   disclaimer: "Datos sintéticos simulados con fines exclusivamente docentes.",
 
   // Datos clínicos ficticios del recién nacido
   patient: {
-    fullName: "Recién nacido Ficticio (Caso 01 - VN)",
+    fullName: "Recién nacido Ficticio (CN_PKU_1001)",
     birthDate: "2026-10-28",
     sampleDate: "2026-10-30",
     receptionDate: "2026-10-30",
@@ -117,8 +117,8 @@ export const caseVN = {
 
   // Modelo de informe cumplimentado para referencia docente
   exemplarReport: {
-    patientCode: "MUESTRA-2026-01",
-    patientName: "Recién nacido Ficticio (Caso 01 - VN)",
+    patientCode: "CN_PKU_1001",
+    patientName: "Recién nacido Ficticio (CN_PKU_1001)",
     sampleDate: "2026-10-30",
     receptionDate: "2026-10-30",
     reportDate: "2026-10-30",
