@@ -31,7 +31,10 @@ export function renderStage2(container, caseData, userState, onUpdate) {
   const sampleTyr = profiles.sample.tyrIntensity;
 
   // Generador de SVG para perfiles con cuadrícula regular
-  function generateSpectrumSvg(pheInt, tyrInt, colorPhe, labelPhe) {
+  function generateSpectrumSvg(pheInt, tyrInt, colorPhe) {
+    const labelPhe = 'Fenilalanina';
+    const labelTyr = 'Tirosina';
+
     // Escala Y: 0% en y=125, 100% en y=15 (rango 110px)
     const getY = (percent) => 125 - (percent / 100) * 110;
 
@@ -82,13 +85,11 @@ export function renderStage2(container, caseData, userState, onUpdate) {
 
         <!-- Pico Phe (Transición 166.1 -> 120.1 Th) -->
         <path d="M ${xPhe - 16} 125 Q ${xPhe} ${yPhe} ${xPhe + 16} 125 Z" fill="${colorPhe}" fill-opacity="0.35" stroke="${colorPhe}" stroke-width="2" />
-        <text x="${xPhe}" y="${yPhe - 4}" font-size="9" font-weight="bold" fill="${colorPhe}" text-anchor="middle">${labelPhe} (${pheInt}%)</text>
-        <text x="${xPhe}" y="${yPhe - 13}" font-size="6.5" fill="#64748b" text-anchor="middle">166&rarr;120</text>
+        <text x="${xPhe}" y="${yPhe - 4}" font-size="9" font-weight="bold" fill="${colorPhe}" text-anchor="middle">${labelPhe}</text>
 
         <!-- Pico Tyr (Transición 182.1 -> 136.1 Th) -->
         <path d="M ${xTyr - 16} 125 Q ${xTyr} ${yTyr} ${xTyr + 16} 125 Z" fill="#0d9488" fill-opacity="0.35" stroke="#0d9488" stroke-width="2" />
-        <text x="${xTyr}" y="${yTyr - 4}" font-size="9" font-weight="bold" fill="#0d9488" text-anchor="middle">Tyr (${tyrInt}%)</text>
-        <text x="${xTyr}" y="${yTyr - 13}" font-size="6.5" fill="#64748b" text-anchor="middle">182&rarr;136</text>
+        <text x="${xTyr}" y="${yTyr - 4}" font-size="9" font-weight="bold" fill="#0d9488" text-anchor="middle">${labelTyr}</text>
       </svg>
     `;
   }
@@ -192,7 +193,7 @@ export function renderStage2(container, caseData, userState, onUpdate) {
       <article class="panel" id="analysis-section">
         <div class="panel-header-inline">
           <h3>Perfiles analíticos simulados con fines educativos</h3>
-          <span class="tag-meta">MS/MS Triple Cuadrupolo &bull; Ejes m/z (Th) vs. Intensidad rel. (%)</span>
+          <span class="tag-meta">MS/MS Triple Cuadrupolo</span>
         </div>
         <p class="panel-desc">
           Comparad los picos espectrométricos de la muestra del paciente frente a los perfiles de control (todas las gráficas comparten idénticas escalas y cuadrícula regular para permitir una comparación visual válida):
@@ -206,10 +207,10 @@ export function renderStage2(container, caseData, userState, onUpdate) {
               <span class="spectrum-sub">Patrón Fisiológico Normal (Calibrador)</span>
             </div>
             <div class="spectrum-svg-wrapper">
-              ${generateSpectrumSvg(negPhe, negTyr, '#0284c7', 'Phe')}
+              ${generateSpectrumSvg(negPhe, negTyr, '#0284c7')}
             </div>
             <div class="spectrum-footer">
-              <p>Phe normal (${negPhe}%) &bull; Tyr normal (${negTyr}%) &bull; <strong>Ratio &lt; 1.5</strong></p>
+              <p>Patrón de referencia fisiológico (fenilalanina y tirosina)</p>
             </div>
           </div>
 
@@ -220,10 +221,10 @@ export function renderStage2(container, caseData, userState, onUpdate) {
               <span class="spectrum-sub">Patrón Patológico PKU (Calibrador)</span>
             </div>
             <div class="spectrum-svg-wrapper">
-              ${generateSpectrumSvg(posPhe, posTyr, '#e11d48', 'Phe \u2191\u2191')}
+              ${generateSpectrumSvg(posPhe, posTyr, '#e11d48')}
             </div>
             <div class="spectrum-footer">
-              <p>Phe disparada (${posPhe}%) &bull; Tyr baja (${posTyr}%) &bull; <strong>Ratio &gt;&gt; 1.5</strong></p>
+              <p>Patrón de referencia patológico (fenilalanina y tirosina)</p>
             </div>
           </div>
 
@@ -234,14 +235,10 @@ export function renderStage2(container, caseData, userState, onUpdate) {
               <span class="spectrum-sub">Muestra del Paciente en Estudio</span>
             </div>
             <div class="spectrum-svg-wrapper">
-              ${generateSpectrumSvg(samplePhe, sampleTyr, isVN ? '#0284c7' : '#e11d48', isVN ? 'Phe' : 'Phe \u2191\u2191')}
+              ${generateSpectrumSvg(samplePhe, sampleTyr, '#5146A5')}
             </div>
             <div class="spectrum-footer">
-              <p>
-                ${isVN 
-                  ? `Phe normal (${samplePhe}%) &bull; Tyr normal (${sampleTyr}%) &bull; Compatible con control negativo`
-                  : `Phe muy elevada (${samplePhe}%) &bull; Tyr normal/baja (${sampleTyr}%) &bull; Perfil alterado`}
-              </p>
+              <p>Perfil analítico de la muestra ${caseData.code} (fenilalanina y tirosina)</p>
             </div>
           </div>
         </div>
@@ -464,8 +461,8 @@ export function renderStage2(container, caseData, userState, onUpdate) {
 
                 <!-- Posición c.1222 alterada en paciente: Pico T (rojo) -->
                 <rect x="110" y="5" width="40" height="60" fill="rgba(225, 29, 72, 0.08)" stroke="#e11d48" stroke-dasharray="2,2" rx="4" />
-                <path d="M 115 55 Q 130 10 145 55" fill="none" stroke="#dc2626" stroke-width="3" />
-                <text x="130" y="65" font-size="10" font-weight="bold" fill="#dc2626" text-anchor="middle">T (Mutado)</text>
+                <path d="M 115 55 Q 130 10 145 55" fill="none" stroke="#dc2626" stroke-width="2" />
+                <text x="130" y="65" font-size="9" fill="#dc2626" text-anchor="middle">T</text>
                 <text x="130" y="10" font-size="7.5" fill="#e11d48" font-weight="bold" text-anchor="middle">c.1222</text>
 
                 <!-- Picos G, G -->
