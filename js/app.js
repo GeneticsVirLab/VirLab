@@ -64,7 +64,8 @@ function createInitialState() {
       member4: ''
     },
     reportActiveTab: 'team',
-    isReportCompleted: false
+    isReportCompleted: false,
+    isReportSent: false
   };
 }
 
@@ -168,10 +169,16 @@ function updateNavigationControls(currentStage) {
       btnNext.title = 'Avanzar a la Etapa 2';
     }
   } else if (currentStage === 4) {
-    if (userState.isReportCompleted) {
-      btnNext.textContent = 'Informe completado \u2714';
+    if (userState.isReportSent) {
+      btnNext.textContent = 'Informe enviado \u2714';
       btnNext.disabled = true;
       btnNext.classList.remove('btn-ready');
+      btnNext.title = 'El informe ya ha sido enviado.';
+    } else if (userState.isReportCompleted) {
+      btnNext.textContent = 'Enviar al médico';
+      btnNext.disabled = false;
+      btnNext.classList.add('btn-ready');
+      btnNext.title = 'Pulsad para enviar el informe al médico solicitante.';
     } else {
       btnNext.textContent = 'Completar informe';
       const canComplete = isReportReadyToComplete();
@@ -225,7 +232,13 @@ function navigateToStage(targetStage) {
 // Botón Siguiente / Completar
 btnNext.addEventListener('click', () => {
   if (userState.currentStage === 4) {
-    if (isReportReadyToComplete()) {
+    if (userState.isReportCompleted && !userState.isReportSent) {
+      const confirmed = window.confirm('Vais a enviar el informe al médico que os solicitó esta prueba. Una vez enviado no se podrá modificar. ¿Confirmáis el envío?');
+      if (confirmed) {
+        userState.isReportSent = true;
+        navigateToStage(4);
+      }
+    } else if (!userState.isReportCompleted && isReportReadyToComplete()) {
       userState.isReportCompleted = true;
       navigateToStage(4);
     }

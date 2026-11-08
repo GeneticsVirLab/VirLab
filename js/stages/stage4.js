@@ -18,6 +18,7 @@ export function renderStage4(container, caseData, userState, onUpdate) {
 
   const currentTab = userState.reportActiveTab || 'team';
   const isCompleted = !!userState.isReportCompleted;
+  const isSent = !!userState.isReportSent;
 
   // Estado del formulario del alumno
   const studentPatientName = userState.reportFields?.patientName !== undefined 
@@ -110,6 +111,9 @@ export function renderStage4(container, caseData, userState, onUpdate) {
         <div class="alert-box alert-success" style="margin-top: 1rem;">
           <h4 style="margin-bottom: 0.25rem;">&#x2714; ¡Informe técnico completado y validado con éxito!</h4>
           <p>El documento ha sido firmado electrónicamente por el equipo de laboratorio con los nombres introducidos y registrado para su comunicación al pediatra responsable.</p>
+          ${isSent ? `
+            <p style="margin-top: 0.35rem;">Informe enviado al médico solicitante (simulación docente: no se transmite ningún dato).</p>
+          ` : ''}
           <div style="margin-top: 0.5rem;">
             <button id="btn-print-report" class="btn btn-secondary btn-sm" type="button">&#x1F5B6;&#xFE0F; Imprimir o Guardar en PDF</button>
           </div>
