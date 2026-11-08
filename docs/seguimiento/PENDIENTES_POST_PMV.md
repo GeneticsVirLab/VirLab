@@ -48,6 +48,72 @@ Durante la construcción del PMV, la prioridad es disponer de un producto funcio
 - **Prioridad orientativa:** media.
 - **Estado:** pendiente de inspección y revisión después del PMV.
 
+### PPMV-004 — Transcrito de referencia de la variante
+
+- **Fecha de detección:** 08/11/2026.
+- **Ámbito:** estudio molecular del caso VP.
+- **Archivos relacionados:** `js/data/case_vp.js`, `js/stages/stage2.js`.
+- **Observación:** el transcrito de referencia `NM_000277.3` figura en este documento, pero la aplicación muestra `c.1222C>T p.(Arg408Trp)` sin indicarlo.
+- **Motivo para revisar:** valorar si debe indicarse el transcrito en la aplicación para una notación HGVS completa.
+- **Acción durante el PMV:** ninguna.
+- **Prioridad orientativa:** baja.
+- **Estado:** pendiente de revisar después del PMV.
+
+### PPMV-005 — Unificar «pediatra» por «médico solicitante»
+
+- **Fecha de detección:** 08/11/2026.
+- **Ámbito:** etapa 4 (subtítulo, mensaje de registro, recomendaciones técnica y del modelo de ejemplo) y README.
+- **Archivos relacionados:** `js/stages/stage4.js`, `README.md`.
+- **Observación:** los textos nuevos del envío simulado dicen «médico solicitante», mientras que los existentes dicen «pediatra». Relacionado con PPMV-002.
+- **Motivo para revisar:** coherencia de la redacción en toda la etapa 4.
+- **Acción durante el PMV:** ninguna; los textos existentes se mantienen.
+- **Prioridad orientativa:** media.
+- **Estado:** pendiente de revisar después del PMV.
+
+### PPMV-006 — Contenido que anticipa el resultado antes de responder
+
+- **Fecha de detección:** 06/11/2026.
+- **Ámbito:** etapa 2.
+- **Archivos relacionados:** `js/stages/stage2.js`, `js/data/case_vn.js`, `js/data/case_vp.js`.
+- **Observación:** la infografía metabólica es distinta en cada caso, y la sección del estudio molecular solo aparece en la muestra alterada. Ambas cosas permiten deducir el resultado antes de que el alumnado responda.
+- **Motivo para revisar:** valorar si se unifican para ambos casos.
+- **Acción durante el PMV:** ninguna (decisión de mantener el contenido).
+- **Prioridad orientativa:** media.
+- **Estado:** pendiente de revisar después del PMV.
+
+### PPMV-007 — Recuadro y etiqueta «c.1222» en el cromatograma Sanger
+
+- **Fecha de detección:** 08/11/2026.
+- **Ámbito:** etapa 2, estudio molecular del caso VP.
+- **Archivo relacionado:** `js/stages/stage2.js`.
+- **Observación:** el recuadro rosa y la etiqueta «c.1222» señalan la posición de la variante sobre el cromatograma. Se neutralizó la etiqueta «T (Mutado)» pero no este marcador.
+- **Motivo para revisar:** decidir si el marcador se mantiene, se neutraliza o se retira.
+- **Acción durante el PMV:** ninguna.
+- **Prioridad orientativa:** baja.
+- **Estado:** pendiente de decisión.
+
+### PPMV-008 — Nombres internos con VN y VP en el código fuente
+
+- **Fecha de detección:** 06/11/2026.
+- **Ámbito:** código fuente.
+- **Archivos relacionados:** `js/app.js`, `js/data/case_vn.js`, `js/data/case_vp.js`, `js/stages/*.js`, `css/styles.css`.
+- **Observación:** identificadores internos (`case-vn`, `case-vp`, `isVN`) y comentarios con VN, VP y «Verdadero» siguen en el código y serían visibles al inspeccionarlo con las herramientas del navegador. No aparecen en la interfaz del alumnado.
+- **Motivo para revisar:** limitación técnica conocida; renombrar exigiría una refactorización fuera del alcance del PMV.
+- **Acción durante el PMV:** ninguna.
+- **Prioridad orientativa:** baja.
+- **Estado:** limitación registrada.
+
+### PPMV-009 — Fecha de emisión del informe
+
+- **Fecha de detección:** 08/11/2026.
+- **Ámbito:** etapa 4.
+- **Archivo relacionado:** `js/stages/stage4.js`.
+- **Observación:** la fecha de emisión parte de un valor fijo del caso; según el código es editable mientras el informe está en edición y queda bloqueada tras «Completar informe». No está comprobado en pantalla que pueda modificarse antes de completar.
+- **Motivo para revisar:** comprobar el comportamiento y valorar si debe proponerse la fecha del día.
+- **Acción durante el PMV:** ninguna.
+- **Prioridad orientativa:** media.
+- **Estado:** pendiente de comprobar.
+
 ## Cómo registrar nuevas observaciones
 
 - **Identificador:** PPMV-XXX.

@@ -24,23 +24,31 @@ El alumnado aprende a:
 
 El PMV incluye exclusivamente dos casos clínicos cerrados centrados en el modelo de la fenilcetonuria (asociada al gen *PAH*):
 
-### Caso 01: VN (Verdadero Negativo) — Código 01
-* **Muestra:** `MUESTRA-2026-01`.
+### Caso VN (Verdadero Negativo)
+* **Muestra:** `CN_PKU_1001`.
 * **Fase Preanalítica:** Tarjeta DBS apta, consentimiento informado comprobado.
 * **Fase Bioquímica (MS/MS):** Picos espectrométricos normales (Phe 18%, Tyr 43%) comparables al control negativo. Concentraciones normales: Phe $58\ \mu\text{mol/L}$, Tyr $72\ \mu\text{mol/L}$, Ratio Phe/Tyr $0.81$.
 * **Infografía:** Enzima PAH activa con su cofactor BH4, transformando fenilalanina en tirosina sin acumulación.
 * **Fase Molecular:** No aplica (un cribado negativo concluye sin pruebas genéticas en la práctica habitual).
 * **Informe:** Cribado negativo; no se requieren pruebas metabólicas ni genéticas adicionales.
 
-### Caso 02: VP (Verdadero Positivo) — Código 02
-* **Muestra:** `MUESTRA-2026-02`.
+### Caso VP (Verdadero Positivo)
+* **Muestra:** `CN_PKU_2001`.
 * **Fase Preanalítica:** Tarjeta DBS apta, consentimiento informado comprobado.
 * **Fase Bioquímica (MS/MS):** Picos espectrométricos patológicos pero visualmente diferenciados del control positivo (Phe 82%, Tyr 28%). Concentraciones alteradas: Phe $485\ \mu\text{mol/L}$, Tyr $52\ \mu\text{mol/L}$, Ratio Phe/Tyr $9.33$.
 * **Infografía:** Enzima PAH alterada por variante patogénica, menor conversión a tirosina, acumulación de Phe y desvío a vías accesorias que producen **fenilcetonas**.
 * **Estudio Molecular Complementario:** Extracción de ADN de la tarjeta DBS, amplificación por PCR del exón 12 de *PAH*, secuenciación Sanger y detección de la variante patogénica `c.1222C>T p.(Arg408Trp)`.
 * **Informe:** Cribado positivo / sospecha de hiperfenilalaninemia; derivación urgente a la Unidad de Metabolopatías para confirmación diagnóstica y consejo genético.
 
-> **Reserva de códigos:** Los códigos 03 (Falso Positivo) y 04 (Falso Negativo) quedan reservados para posibles ampliaciones futuras. No forman parte del PMV actual.
+> **Nomenclatura de muestras (para el profesorado):** el alumnado solo ve el identificador `CN_PKU_nnnn` y no conoce el significado de la numeración. La serie `CN_PKU_1xxx` corresponde a resultado negativo y la serie `CN_PKU_2xxx` a resultado positivo, con numeración consecutiva dentro de cada serie.
+>
+> **Reserva de casos:** Los casos de falso positivo y falso negativo quedan reservados para posibles ampliaciones futuras. No forman parte del PMV actual.
+
+### Cierre del ejercicio (etapa 4)
+
+1. El equipo completa el checklist (valoraciones de Phe, Tyr y ratio, decisión técnica, justificación de al menos 10 caracteres y al menos 2 firmantes) y pulsa «Completar informe» en la barra de navegación. El informe queda bloqueado.
+2. Pulsa «Enviar al médico» y confirma el cuadro de aviso. El envío es **simulado** al médico solicitante: no se transmite ningún dato.
+3. Puede imprimir o guardar el informe en PDF con «Imprimir o Guardar en PDF».
 
 ---
 
@@ -59,7 +67,10 @@ El PMV incluye exclusivamente dos casos clínicos cerrados centrados en el model
 ```
 virlab_01/
 ├── .gitignore              # Exclusiones de temporales del sistema operativo
+├── AGENTS.md               # Reglas de trabajo para agentes de IA
 ├── README.md               # Documentación y especificación del proyecto
+├── docs/
+│   └── seguimiento/        # Seguimiento de tareas, reglas y pendientes post-PMV
 ├── index.html              # Shell principal con cabecera, selector de caso, glosario y progreso
 ├── css/
 │   └── styles.css          # Estilos globales, espectros con cuadrícula, infografía, Sanger y print
@@ -83,9 +94,9 @@ virlab_01/
 Para ejecutar la aplicación localmente no se requiere instalar ninguna dependencia:
 
 ### Opción A: Ejecución directa en navegador
-Abre el archivo `index.html` con cualquier navegador web moderno (Google Chrome, Safari, Mozilla Firefox, Microsoft Edge).
+Abre el archivo `index.html` con un navegador web moderno. Atención: como la aplicación usa módulos de JavaScript, algunos navegadores bloquean la carga si el archivo se abre directamente desde el disco; en ese caso, usa la Opción B.
 
-### Opción B: Mediante servidor local estático con Python
+### Opción B (recomendada): Mediante servidor local estático con Python
 Desde la raíz del repositorio, ejecuta:
 ```bash
 python3 -m http.server 8000
@@ -95,6 +106,16 @@ Y abre en tu navegador la dirección: [http://localhost:8000](http://localhost:8
 ---
 
 ## 6. Estado del desarrollo y resolución de incidencias
+
+### Estado actual
+
+- El PMV está completo de principio a fin: dos casos y cuatro etapas, con cierre simulado del informe.
+- Tras la primera versión se han realizado tres tareas: nomenclatura de muestras neutra para el alumnado (identificadores `CN_PKU_nnnn`), formato de los gráficos sin anticipar el resultado, y cierre de la etapa 4 con «Completar informe» y «Enviar al médico» (envío simulado).
+- Cada tarea tiene su seguimiento en `docs/seguimiento/`, que distingue entre implementado, probado por búsqueda y validado visualmente.
+- La validación científica del contenido se trata por separado de la validación técnica y no está cubierta por estas comprobaciones.
+- Las limitaciones y observaciones están registradas en `docs/seguimiento/PENDIENTES_POST_PMV.md`.
+
+### Incidencias con el agente de IA
 
 Durante el desarrollo del PMV surgieron dificultades relacionadas con el funcionamiento del agente de IA utilizado en Antigravity. Para resolverlas, se cambió el modelo de IA a Claude Sonnet 4.6 y se realizaron pruebas de funcionamiento del agente y de su capacidad para trabajar sobre el repositorio local del proyecto.
 
