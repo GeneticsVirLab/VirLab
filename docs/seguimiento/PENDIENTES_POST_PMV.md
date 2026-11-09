@@ -112,7 +112,19 @@ Durante la construcción del PMV, la prioridad es disponer de un producto funcio
 - **Motivo para revisar:** comprobar el comportamiento y valorar si debe proponerse la fecha del día.
 - **Acción durante el PMV:** ninguna.
 - **Prioridad orientativa:** media.
-- **Estado:** pendiente de comprobar.
+- **Estado:** resuelto en la tarea D (fecha de hoy por defecto, editable en edición y bloqueada al completar el informe); validado en pantalla.
+
+### PPMV-010 — Señalar el nucleótido mutado en el cromatograma Sanger
+
+- **Identificador:** PPMV-010.
+- **Fecha de detección:** 2026-11-09.
+- **Ámbito:** Etapa 2, cromatograma Sanger del caso con variante.
+- **Archivo o apartado relacionado:** js/stages/stage2.js (relacionado con PPMV-007).
+- **Observación o duda:** señalar visualmente el nucleótido mutado en el cromatograma, sin anticipar el resultado al alumnado antes de que responda.
+- **Motivo para revisar:** mejora didáctica; facilita localizar la posición de la variante.
+- **Acción durante el PMV:** ninguna; se pospone.
+- **Prioridad orientativa:** media.
+- **Estado:** pendiente de revisar después del PMV.
 
 ## Cómo registrar nuevas observaciones
 

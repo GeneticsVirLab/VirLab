@@ -25,7 +25,9 @@ export function renderStage4(container, caseData, userState, onUpdate) {
     ? userState.reportFields.patientName 
     : p.fullName;
 
-  const studentReportDate = userState.reportFields?.reportDate || p.reportDate;
+  const now = new Date();
+  const todayStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+  const studentReportDate = userState.reportFields?.reportDate || todayStr;
   const studentJustification = userState.justification || '';
   const studentDecision = userState.answers?.decision || '';
   const studentEvals = userState.evaluations || {};
