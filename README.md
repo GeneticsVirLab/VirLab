@@ -1,6 +1,12 @@
+<p align="center">
+  <img src="assets/virlab-logo.svg" alt="VirLab · Laboratorio Virtual Educativo · Competencias Científicas" width="480">
+</p>
+
 # VirLab: Laboratorio Virtual de Cribado Neonatal y Diagnóstico Genético
 
 Laboratorio virtual educativo orientado al desarrollo de competencias científicas en **Bachillerato** mediante la simulación guiada del cribado neonatal de metabolopatías congénitas y el diagnóstico molecular complementario.
+
+**Aplicación en línea (GitHub Pages):** [https://geneticsvirlab.github.io/VirLab/](https://geneticsvirlab.github.io/VirLab/)
 
 > **Aviso docente fundamental:** VirLab es una herramienta de aprendizaje basada en casos y datos sintéticos o simulados. No es una herramienta de diagnóstico clínico real ni debe utilizarse como tal.
 
@@ -69,6 +75,7 @@ virlab_01/
 ├── .gitignore              # Exclusiones de temporales del sistema operativo
 ├── AGENTS.md               # Reglas de trabajo para agentes de IA
 ├── README.md               # Documentación y especificación del proyecto
+├── assets/                 # Logo de VirLab (icono, logo con lema e icono de pestaña)
 ├── docs/
 │   └── seguimiento/        # Seguimiento de tareas, reglas y pendientes post-PMV
 ├── index.html              # Shell principal con cabecera, selector de caso, glosario y progreso
@@ -110,10 +117,11 @@ Y abre en tu navegador la dirección: [http://localhost:8000](http://localhost:8
 ### Estado actual
 
 - El PMV está completo de principio a fin: dos casos y cuatro etapas, con cierre simulado del informe.
-- Tras la primera versión se han realizado tres tareas: nomenclatura de muestras neutra para el alumnado (identificadores `CN_PKU_nnnn`), formato de los gráficos sin anticipar el resultado, y cierre de la etapa 4 con «Completar informe» y «Enviar al médico» (envío simulado).
+- Tras la primera versión se han realizado cuatro tareas: nomenclatura de muestras neutra para el alumnado (identificadores `CN_PKU_nnnn`), formato de los gráficos sin anticipar el resultado, cierre de la etapa 4 con «Completar informe» y «Enviar al médico» (envío simulado), y fecha de emisión del informe por defecto igual a la fecha de hoy (editable mientras el informe está en edición).
 - Cada tarea tiene su seguimiento en `docs/seguimiento/`, que distingue entre implementado, probado por búsqueda y validado visualmente.
 - La validación científica del contenido se trata por separado de la validación técnica y no está cubierta por estas comprobaciones.
-- Las limitaciones y observaciones están registradas en `docs/seguimiento/PENDIENTES_POST_PMV.md`.
+- Las limitaciones y observaciones están registradas en `docs/seguimiento/PENDIENTES_POST_PMV.md` (PPMV-001 a PPMV-010).
+- La aplicación está publicada en GitHub Pages y el código es público en este repositorio.
 
 ### Incidencias con el agente de IA
 

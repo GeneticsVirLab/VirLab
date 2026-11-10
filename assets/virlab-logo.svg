@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 120" width="640" height="120" role="img" aria-label="VirLab · Laboratorio Virtual Educativo · Competencias Científicas">
+  <g transform="translate(0 8) scale(1.625)" fill="none">
+    <path d="M14 10 C22 30 28 40 32 54" stroke="#5146A5" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M50 10 C42 30 36 40 32 54" stroke="#5146A5" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M19.6 23.3 H44.4 M24.5 34.25 H39.5 M28.6 44 H35.4" stroke="#059669" stroke-width="3.5" stroke-linecap="round"/>
+    <circle cx="32" cy="10" r="5.5" fill="#059669"/>
+  </g>
+  <text x="124" y="68" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="64" font-weight="700" letter-spacing="-1.28" fill="#5146A5">Vir<tspan fill="#059669">Lab</tspan></text>
+  <text x="124" y="98" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16" fill="#475569">Laboratorio Virtual Educativo · Competencias Científicas</text>
+</svg>
